@@ -1,0 +1,33 @@
+name: Fetch GitHub Feed
+
+on:
+  schedule:
+    - cron: '15 * * * *' # hourly, offset
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Fetch GitHub Atom -> data/github.json
+        run: node scripts/fetch_feeds.js github
+      - name: Commit changes if any
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          if ! git diff --quiet --exit-code data/github.json; then
+            git add data/github.json
+            git commit -m "chore: update github feed"
+            git push
+          else
+            echo "No changes to commit."
+          fi 

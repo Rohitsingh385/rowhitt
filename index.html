@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rohit </title>
+    <meta name="description" content="Rohit — Backend & DevOps: PHP/Laravel, Docker, CI/CD, Automation" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#FAF7F1" />
+    <link rel="canonical" href="https://rowhit.in/" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="wrap">
+        <h1 class="site-title">Rohit</h1>
+        <p class="tagline">Backend &amp; DevOps — Nodejs/express — PHP/Codeigniter — Docker — CI/CD — Automation</p>
+        <nav class="top-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#activity">Activity</a></li>
+            <li><a href="#resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <hr />
+    </header>
+
+    <main id="main" class="wrap" role="main">
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="section-title">About</h2>
+        <p>2024 graduate; currently a PHP software developer.</p>
+        <p>Interested in backend engineering, DevOps, and automation.</p>
+        <p>Enjoys Docker, GitHub Actions, Express Api .</p>
+        <p>Shares learnings via open‑source and short blogs.</p>
+        <!-- <p class="now">Now: building a productionized Laravel API with CI/CD and observability.</p> -->
+        <hr />
+      </section>
+
+      <section id="experience" aria-labelledby="experience-title">
+        <h2 id="experience-title" class="section-title">Experience</h2>
+        <article class="experience-item">
+          <header>
+            <h3>Software Developer — Example Co.</h3>
+            <p class="muted">2024 — Present</p>
+          </header>
+          <ul>
+            <li>Containerized PHP app with Docker Compose; unified local dev and prod parity.</li>
+            <li>Added CI quality checks; reduced PR cycle time and maintained stable APIs.</li>
+          </ul>
+        </article>
+        <hr />
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title" class="section-title">Skills</h2>
+        <ul class="skills">
+          <li><strong>Backend:</strong> PHP/Laravel, REST APIs</li>
+          <li><strong>DevOps:</strong> Docker, GitHub Actions, CI/CD</li>
+          <li><strong>Cloud/IaC:</strong> AWS/GCP, Terraform</li>
+          <li><strong>Databases/Queues:</strong> PostgreSQL, Redis/RabbitMQ</li>
+          <li><strong>Tooling:</strong> Bash, Makefile</li>
+        </ul>
+        <hr />
+      </section>
+
+      <section id="activity" aria-labelledby="activity-title">
+        <h2 id="activity-title" class="section-title">Activity</h2>
+        <ul id="activity-list" class="activity-list" aria-live="polite">
+          <li class="muted">No recent activity yet.</li>
+        </ul>
+        <hr />
+      </section>
+
+      <section id="resume" aria-labelledby="resume-title">
+        <h2 id="resume-title" class="section-title">Resume</h2>
+        <p>
+          <a class="button" href="assets/resume.pdf" download>Download Resume (PDF)</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <hr />
+      <div class="wrap">
+        <p>
+          <a href="mailto:hello@rowhit.in">hello@rowhit.in</a>
+          · <a href="https://github.com/rowhit" rel="me">GitHub</a>
+          · <a href="https://x.com/rowhit" rel="me">X</a>
+          · <a href="https://linkedin.com/in/rowhit" rel="me">LinkedIn</a>
+        </p>
+        <p class="muted small">© Rohit</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const list = document.getElementById('activity-list');
+        const asText = (d) => new Date(d).toISOString().slice(0, 10);
+        function render(items) {
+          list.innerHTML = '';
+          if (!items || !items.length) {
+            const li = document.createElement('li');
+            li.className = 'muted';
+            li.textContent = 'No recent activity yet.';
+            list.appendChild(li);
+            return;
+          }
+          for (const item of items) {
+            const li = document.createElement('li');
+            const icon = document.createElement('span');
+            icon.className = 'icon';
+            icon.textContent = item.icon || '•';
+            const meta = document.createElement('span');
+            meta.className = 'meta';
+            const src = document.createElement('span');
+            src.className = 'source';
+            src.textContent = item.source || 'Feed';
+            const date = document.createElement('time');
+            date.dateTime = item.published || '';
+            date.textContent = item.published ? asText(item.published) : '';
+            meta.appendChild(src);
+            meta.appendChild(document.createTextNode(' — '));
+            meta.appendChild(date);
+            const title = document.createElement('span');
+            title.className = 'title';
+            title.textContent = item.title || item.text || '(no title)';
+            const link = document.createElement('a');
+            link.href = item.url || '#';
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = 'permalink';
+            link.setAttribute('aria-label', 'Open item');
+            link.textContent = '→';
+            li.appendChild(icon);
+            li.appendChild(meta);
+            li.appendChild(document.createTextNode(' — '));
+            li.appendChild(title);
+            li.appendChild(document.createTextNode(' '));
+            li.appendChild(link);
+            list.appendChild(li);
+          }
+        }
+        fetch('public/activity.json', {cache: 'no-store'})
+          .then((r) => r.ok ? r.json() : [])
+          .then((data) => render(Array.isArray(data) ? data : []))
+          .catch(() => render([]));
+      })();
+    </script>
+  </body>
+</html> 

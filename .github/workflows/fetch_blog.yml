@@ -1,0 +1,33 @@
+name: Fetch Blog RSS
+
+on:
+  schedule:
+    - cron: '0 * * * *' # hourly
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Fetch blog RSS -> data/blog.json
+        run: node scripts/fetch_feeds.js blog
+      - name: Commit changes if any
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          if ! git diff --quiet --exit-code data/blog.json; then
+            git add data/blog.json
+            git commit -m "chore: update blog feed"
+            git push
+          else
+            echo "No changes to commit."
+          fi 
