@@ -1,0 +1,12 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "rowhit's portfolio ",
+  "main": "fetch_feeds.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "node": "node fetch_feeds.js"
+  },
+  "author": "rk301855@gmail.com",
+  "license": "MIT"
+}

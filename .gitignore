@@ -1,0 +1,52 @@
+# OS artifacts
+.DS_Store
+.DS_Store?
+Thumbs.db
+desktop.ini
+Icon?
+
+# Editors/IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.orig
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Node/JS builds (not used now, but safe to ignore if added later)
+node_modules/
+dist/
+build/
+.tmp/
+.cache/
+coverage/
+.nyc_output/
+
+# Python local servers
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Env/local config (none used by default)
+.env
+.env.*
+*.local
+
+# Misc temporary files
+*.bak
+*.tmp
+*.temp
+
+# NOTE: Keep feed outputs tracked for the site to work on Pages
+# (do not ignore these)
+# data/blog.json
+# data/github.json
+# data/x.json
+# data/linkedin.json
+# public/activity.json 

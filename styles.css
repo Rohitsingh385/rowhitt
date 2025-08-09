@@ -1,0 +1,88 @@
+/* Nostalgic, fast, minimal CSS (<=10KB) */
+:root {
+  --paper: #FAF7F1;
+  --ink: #2B2B2B;
+  --link: #0033CC;
+  --visited: #551A8B;
+  --rule: #D6CFBF;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Verdana, Tahoma, sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  max-width: 800px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.site-header .wrap { padding-top: 16px; padding-bottom: 8px; }
+.site-title {
+  font-family: Georgia, Garamond, serif;
+  font-size: 2rem;
+  margin: 0 0 4px;
+}
+.tagline { margin: 0 0 8px; font-size: 0.95rem; }
+
+.top-nav ul { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.top-nav a { text-decoration: none; color: var(--link); }
+.top-nav a:visited { color: var(--visited); }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 16px 0; }
+
+.section-title {
+  font-family: Georgia, Garamond, serif;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.02em;
+  margin: 16px 0 8px;
+}
+
+.muted { color: #5a5a5a; }
+.small { font-size: 0.875rem; }
+.now { font-style: italic; }
+
+.skills { padding-left: 20px; }
+.skills li { margin: 4px 0; }
+
+.activity-list { list-style: none; padding: 0; margin: 0; }
+.activity-list li { display: flex; align-items: baseline; gap: 6px; padding: 6px 0; border-bottom: 1px dotted var(--rule); }
+.activity-list li:last-child { border-bottom: 0; }
+.activity-list .icon { width: 1.25rem; display: inline-block; text-align: center; }
+.activity-list .meta { color: #444; font-size: 0.9rem; }
+.activity-list .title { margin-left: 2px; }
+.activity-list .permalink { text-decoration: none; color: var(--link); margin-left: 4px; }
+.activity-list .permalink:visited { color: var(--visited); }
+
+a { color: var(--link); }
+a:visited { color: var(--visited); }
+a:hover, a:focus { text-decoration: underline; }
+
+.button {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  padding: 6px 10px;
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+}
+.button:focus { outline: 2px solid var(--link); outline-offset: 2px; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus { position: static; width: auto; height: auto; padding: 6px; background: #fff; border: 1px solid var(--ink); }
+
+.site-footer { margin-top: 24px; padding-bottom: 24px; }
+
+@media (max-width: 480px) {
+  .site-title { font-size: 1.6rem; }
+  .activity-list .meta { display: inline-block; }
+} 
