@@ -1,1 +1,23 @@
-[] 
+[
+  {
+    "icon": "🚀",
+    "source": "GitHub",
+    "published": "2024-12-15T10:30:00Z",
+    "title": "Released Docker automation scripts for CI/CD",
+    "url": "https://github.com/rowhit/docker-ci-scripts"
+  },
+  {
+    "icon": "📝",
+    "source": "Blog",
+    "published": "2024-12-10T14:20:00Z",
+    "title": "Best practices for PHP CodeIgniter performance optimization",
+    "url": "https://rowhit.in/blog/codeigniter-optimization"
+  },
+  {
+    "icon": "⚡",
+    "source": "GitHub",
+    "published": "2024-12-05T09:15:00Z",
+    "title": "Contributed to open-source REST API boilerplate",
+    "url": "https://github.com/rowhit/node-api-boilerplate"
+  }
+]
