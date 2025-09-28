@@ -1,0 +1,84 @@
+/* Custom Theme Override - Replace Black with Baby Pink */
+
+/* Baby pink color variables */
+:root {
+    --baby-pink: #F8BBD9;
+    --baby-pink-dark: #F5A9D0;
+    --baby-pink-light: #FBD5E8;
+}
+
+/* Replace all black colors with baby pink */
+body, 
+.qodef-header--minimal #qodef-page-header,
+#qodef-page-header,
+#subTitle,
+.blak,
+.tblHeaderColor,
+.tblHeaderColor td,
+hr,
+a:visited,
+.qodef-m-line,
+border-color: #000,
+background-color: #000,
+color: #000 {
+    background-color: var(--baby-pink) !important;
+    color: var(--baby-pink) !important;
+    border-color: var(--baby-pink) !important;
+}
+
+/* Specific overrides for elements that should be baby pink */
+#subTitle {
+    background: var(--baby-pink) !important;
+    color: white !important;
+}
+
+.qodef-header--minimal #qodef-page-header {
+    background-color: var(--baby-pink-light) !important;
+}
+
+/* Button and link styling */
+.qodef-button,
+.qodef-m-text {
+    border-color: var(--baby-pink) !important;
+    color: var(--baby-pink) !important;
+}
+
+/* Menu and navigation - keep original black and white */
+.qodef-fullscreen-menu,
+#qodef-fullscreen-area {
+    background-color: #000 !important;
+}
+
+.qodef-fullscreen-menu a,
+.qodef-menu-item-text,
+#qodef-fullscreen-area a {
+    color: #fff !important;
+}
+
+/* Override any remaining black elements */
+* {
+    color: inherit !important;
+}
+
+*[style*="color: #000"],
+*[style*="color:#000"],
+*[style*="color: black"],
+*[style*="background: #000"],
+*[style*="background:#000"],
+*[style*="background-color: #000"],
+*[style*="background-color:#000"] {
+    color: var(--baby-pink) !important;
+    background-color: var(--baby-pink) !important;
+}
+
+/* Text colors */
+h1, h2, h3, h4, h5, h6,
+.qodef-m-title {
+    color: var(--baby-pink) !important;
+}
+
+/* Border overrides */
+.qodef-m-bg,
+.qodef-button {
+    border-color: var(--baby-pink) !important;
+}
