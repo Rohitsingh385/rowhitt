@@ -10,6 +10,15 @@
 const fs = require('fs');
 const path = require('path');
 
+// Use node-fetch for older Node versions, built-in fetch for Node 18+
+let fetch;
+try {
+  fetch = globalThis.fetch || require('node-fetch');
+} catch {
+  console.error('fetch not available. Install node-fetch: npm install node-fetch@2');
+  process.exit(1);
+}
+
 const ROOT = process.cwd();
 const DATA_DIR = path.join(ROOT, 'data');
 const PUBLIC_DIR = path.join(ROOT, 'public');

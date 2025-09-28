@@ -8,5 +8,8 @@
     "node": "node fetch_feeds.js"
   },
   "author": "rk301855@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
 }
